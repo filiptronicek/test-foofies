@@ -1,3 +1,3 @@
-from gitpod/workspace-base
+from gitpod/workspace-bun
 
 RUN echo hello
