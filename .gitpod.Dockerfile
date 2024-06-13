@@ -1,3 +1,3 @@
-from gitpod/workspace-ruby-4 # does not exist
+from gitpod/workspace-ruby-3
 
 RUN echo hello
