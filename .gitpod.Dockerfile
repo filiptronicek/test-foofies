@@ -1,4 +1,4 @@
-from gitpod/workspace-base
+from gitpod/workspace-mongodb
 
 COPY ./prebuild.sh .
 
