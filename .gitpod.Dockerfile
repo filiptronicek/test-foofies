@@ -1,3 +1,3 @@
-from gitpod/workspace-ruby-3.1
+from gitpod/workspace-ruby-3.2
 
 RUN echo hello
