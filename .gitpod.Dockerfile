@@ -1,6 +1,6 @@
 FROM gitpod/workspace-mongodb
 
-ENV TRIGGER_REBUILD=1
+ENV TRIGGER_REBUILD=2
 
 COPY ./prebuild.sh .
 
