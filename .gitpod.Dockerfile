@@ -1,4 +1,6 @@
-from gitpod/workspace-mongodb
+FROM gitpod/workspace-mongodb
+
+ENV TRIGGER_REBUILD=1
 
 COPY ./prebuild.sh .
 
