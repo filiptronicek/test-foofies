@@ -1,3 +1,4 @@
 tasks:
-  - init: echo hello > /tmp/aa.log
-    command: echo world
+  - name: Script Task
+    init: echo 'init script' && go run log.go
+    command: echo 'start script'
