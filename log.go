@@ -37,7 +37,11 @@ func main() {
 
 	// Test 7: Intermittent logging
 	fmt.Println("\nTest 7: Intermittent logging")
-	intermittentLogging(15 * time.Second)
+	intermittentLogging(5 * time.Second)
+
+	// Test 8: Large log entries with emoji-only Unicode characters
+	fmt.Println("\nTest 8: Large log entries with emoji-only Unicode characters")
+	largeLogEntriesWithUnicode(5)
 
 	fmt.Println("\nExtended log streaming tests completed.")
 }
@@ -80,7 +84,7 @@ func variableLogLevels(count int) {
 	for i := 0; i < count; i++ {
 		level := levels[rand.Intn(len(levels))]
 		fmt.Printf("[%s] Log entry %d: %s\n", level, i, randomString(25))
-		time.Sleep(50 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
 }
 
@@ -92,7 +96,7 @@ func concurrentLogging(sources, entriesPerSource int) {
 			defer wg.Done()
 			for j := 0; j < entriesPerSource; j++ {
 				fmt.Printf("Source %d - Log %d: %s\n", sourceID, j, randomString(20))
-				time.Sleep(time.Duration(rand.Intn(100)) * time.Millisecond)
+				time.Sleep(time.Duration(rand.Intn(50)) * time.Millisecond)
 			}
 		}(i)
 	}
@@ -103,7 +107,25 @@ func largeLogEntries(count int) {
 	for i := 0; i < count; i++ {
 		size := rand.Intn(9000) + 1000 // Random size between 1KB and 10KB
 		fmt.Printf("Large log entry %d (%d bytes): %s\n", i, size, randomString(size))
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(50 * time.Millisecond)
+	}
+}
+
+func largeLogEntriesWithUnicode(count int) {
+	emojis := []string{
+		"😀", "😂", "🤔", "👍", "🎉", "🧡", "🍕", "🚀", "🎸", "🐱",
+		"🌺", "🦄", "🍦", "🎨", "🏆", "🌙", "🍎", "🐼", "🏖️", "🎭",
+		"🌞", "🍔", "🚲", "📚", "🎧", "🌍", "🏡", "🌻", "🐶", "🍊",
+	}
+
+	for i := 0; i < count; i++ {
+		size := rand.Intn(9000) + 1000
+		var content string
+		for j := 0; j < size; j++ {
+			content += emojis[rand.Intn(len(emojis))]
+		}
+		fmt.Printf("Large emoji-only log entry %d (%d emojis): %s\n", i, size, content)
+		time.Sleep(50 * time.Millisecond)
 	}
 }
 
@@ -114,7 +136,7 @@ func intermittentLogging(duration time.Duration) {
 		for i := 0; i < burstCount; i++ {
 			fmt.Printf("Intermittent log burst %d - Entry %d: %s\n", i, i, randomString(30))
 		}
-		quietPeriod := time.Duration(rand.Intn(5000)+1000) * time.Millisecond
+		quietPeriod := time.Duration(rand.Intn(1000)+500) * time.Millisecond
 		time.Sleep(quietPeriod)
 	}
 }
