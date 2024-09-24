@@ -11,33 +11,33 @@ import (
 func main() {
 	fmt.Println("Starting extended log streaming tests...")
 
-	// // Test 1: Rapid logging
-	// fmt.Println("\nTest 1: Rapid logging")
-	// rapidLogging(10000, 10*time.Millisecond)
+	// Test 1: Rapid logging
+	fmt.Println("\nTest 1: Rapid logging")
+	rapidLogging(10000, 10*time.Millisecond)
 
 	// Test 2: Updating same line
-	fmt.Println("\nTest 2: Updating same line")
+	fmt.Println("\nTest 2: Updating same line with ANSI")
 	updateSameLine(100)
 
-	// // Test 3: Long-running logs
-	// fmt.Println("\nTest 3: Long-running logs")
-	// longRunningLogs(5 * time.Second)
+	// Test 3: Long-running logs
+	fmt.Println("\nTest 3: Long-running logs")
+	longRunningLogs(5 * time.Second)
 
-	// // Test 4: Variable log levels
-	// fmt.Println("\nTest 4: Variable log levels")
-	// variableLogLevels(100)
+	// Test 4: Variable log levels
+	fmt.Println("\nTest 4: Variable log levels")
+	variableLogLevels(100)
 
-	// // Test 5: Concurrent logging
-	// fmt.Println("\nTest 5: Concurrent logging")
-	// concurrentLogging(5, 100)
+	// Test 5: Concurrent logging
+	fmt.Println("\nTest 5: Concurrent logging")
+	concurrentLogging(5, 100)
 
-	// // Test 6: Large log entries
-	// fmt.Println("\nTest 6: Large log entries")
-	// largeLogEntries(10)
+	// Test 6: Large log entries
+	fmt.Println("\nTest 6: Large log entries")
+	largeLogEntries(10)
 
-	// // Test 7: Intermittent logging
-	// fmt.Println("\nTest 7: Intermittent logging")
-	// intermittentLogging(15 * time.Second)
+	// Test 7: Intermittent logging
+	fmt.Println("\nTest 7: Intermittent logging")
+	intermittentLogging(15 * time.Second)
 
 	fmt.Println("\nExtended log streaming tests completed.")
 }
@@ -55,7 +55,9 @@ func rapidLogging(count int, duration time.Duration) {
 func updateSameLine(count int) {
 	for i := 0; i < count; i++ {
 		length := rand.Intn(50) + 10 // Random length between 10 and 59
-		fmt.Printf("\rUpdating line %d: %s", i, randomString(length))
+
+		// ANSI escape code: Erase the line before updating it
+		fmt.Printf("\r\033[KUpdating line %d: %s", i, randomString(length))
 		os.Stdout.Sync()
 		time.Sleep(100 * time.Millisecond)
 	}
