@@ -10,4 +10,4 @@ tasks:
       
       BASH
 
-      source /etc/bash.bashrc
+      source ~/.bashrc
