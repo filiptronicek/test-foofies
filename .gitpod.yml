@@ -11,3 +11,6 @@ tasks:
       BASH
 
       source ~/.bashrc
+
+env:
+  - VAR: "gitpodyml"
