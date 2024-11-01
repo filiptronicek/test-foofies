@@ -1,16 +1,8 @@
 tasks:
   - init: echo hello > /tmp/aa.log
     command: echo world
-
-  - init: |
-      sudo tee -a ~/.bashrc <<'BASH'
-      
-      export USERNAME="${GITPOD_GIT_USER_EMAIL%%@*}"
-      export SOMETHING_ELSE="$(git -C $GITPOD_REPO_ROOT remote get-url origin)"
-      
-      BASH
-
-      source ~/.bashrc
+    env:
+      VAR: "gitpodyml-task"
 
 env:
   VAR: "gitpodyml"
