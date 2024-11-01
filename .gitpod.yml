@@ -13,4 +13,4 @@ tasks:
       source ~/.bashrc
 
 env:
-  - VAR: "gitpodyml"
+  VAR: "gitpodyml"
