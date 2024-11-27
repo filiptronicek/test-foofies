@@ -6,7 +6,7 @@ tasks:
       
       for i in {0..70}
       do
-        REPO_URL="https://bitbucket.gitpod-dev.com/projects/TES/repos/2k-repos-$i"
+        REPO_URL="https://bitbucket.gitpod-dev.com/scm/tes/2k-repos-$i.git"
         echo "Cloning repository $i: $REPO_URL"
         git clone $REPO_URL
         if [ $? -ne 0 ]; then
