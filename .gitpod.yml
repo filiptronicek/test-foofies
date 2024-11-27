@@ -1,3 +1,19 @@
 tasks:
-  - init: echo hello > /tmp/aa.log
-    command: echo world
+  - name: Clone Multiple Repositories
+    init: |
+      mkdir -p ~/workspace/test-repos
+      cd ~/workspace/test-repos
+      
+      for i in {0..70}
+      do
+        REPO_URL="https://bitbucket.gitpod-dev.com/projects/TES/repos/2k-repos-$i"
+        echo "Cloning repository $i: $REPO_URL"
+        git clone $REPO_URL
+        if [ $? -ne 0 ]; then
+          echo "Failed to clone repository $i"
+          # Continue with the next repository even if one fails
+          continue
+        fi
+      done
+      
+      echo "Finished cloning repositories"
