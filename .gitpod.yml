@@ -6,7 +6,7 @@ tasks:
       mkdir -p ~/workspace/test-repos
       cd ~/workspace/test-repos
       
-      for i in {0..70}
+      for i in {0..120}
       do
         REPO_URL="https://bitbucket.gitpod-dev.com/scm/tes/2k-repos-$i.git"
         echo "Cloning repository $i: $REPO_URL"
