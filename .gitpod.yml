@@ -1,3 +1,4 @@
 tasks:
   - init: echo hello > /tmp/aa.log
     command: echo world
+  - init: pip install pre-commit && pre-commit install --hook-type prepare-commit-msg

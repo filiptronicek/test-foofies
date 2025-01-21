@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: add-modified-tag
+        name: Add Modified Tag
+        entry: message.sh
+        language: script
+        stages: [prepare-commit-msg]
+        args: ["${1}"]
