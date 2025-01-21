@@ -6,4 +6,3 @@ repos:
         entry: message.sh
         language: script
         stages: [prepare-commit-msg]
-        args: ["${1}"]
