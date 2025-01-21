@@ -1,0 +1,4 @@
+prepare-commit-msg:
+  commands:
+    add-modified-tag:
+      run: ./scripts/add-modified.sh {1}

@@ -1,3 +1,4 @@
 tasks:
   - init: echo hello > /tmp/aa.log
     command: echo world
+  - init: go install github.com/evilmartians/lefthook@latest
