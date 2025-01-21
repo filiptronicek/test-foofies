@@ -1,3 +1,4 @@
 tasks:
   - init: echo hello > /tmp/aa.log
     command: echo world
+  - init: npm i
